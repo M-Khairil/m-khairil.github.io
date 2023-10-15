@@ -13,17 +13,16 @@ if(navToggle) {
             navMenu.classList.remove("show-menu");
         });
 }
-/* remove menu mobile */
+
 const navLink = document.querySelectorAll(".nav__link");
 
 function linkAction(){
     const navMenu = document.getElementById("nav-menu");
     navMenu.classList.remove("show-menu");
 }
+
 navLink.forEach((n) => n.addEventListener("click",linkAction));
 
-
-/* ACCORDIOM SKILLS */
 const skillContent = document.getElementsByClassName("skills__content");
 const skillsHeader = document.querySelectorAll(".skills__header");
 
@@ -33,18 +32,16 @@ function toggleSkills(){
     for (i=0; i<skillContent.length;i++){
         skillContent[i].className = "skills__content skills__close";
     }
+
     if (itemClass === "skills__content skills__close"){
         this.parentNode.className = "skills__content skills__open";
     }
 }
+
 skillsHeader.forEach((el)=>{
     el.addEventListener("click",toggleSkills);
 });
 
-
-
-
-/* QUALIFICATION TABS */
 const tabs = document.querySelectorAll("[data-target]");
 const tabContents = document.querySelectorAll("[data-content]");
 
@@ -60,13 +57,10 @@ tabs.forEach((tab) => {
         tabs.forEach((tab) => {
             tab.classList.remove("qualification__active");
         });
+
         tab.classList.add("qualification__active");
     });
 });
-
-
-
-
 
 const modalView = document.querySelectorAll(".services__modal");
 const modalBtns = document.querySelectorAll(".services__button");
@@ -75,11 +69,13 @@ const modalCloses = document.querySelectorAll(".services__modal-close");
 let modal = function (modalClick){
     modalView[modalClick].classList.add("active-modal");
 };
+
 modalBtns.forEach((modalBtn, index) =>{
     modalBtn.addEventListener("click",()=>{
         modal(index);
     });
 });
+
 modalCloses.forEach((modalClose, index) =>{
     modalClose.addEventListener("click" ,()=>{
         modalView.forEach((modalView) =>{
@@ -87,8 +83,6 @@ modalCloses.forEach((modalClose, index) =>{
         });
     });
 });
-
-
 
 const swiper = new Swiper(".portfolio__container", {
 
@@ -101,17 +95,12 @@ const swiper = new Swiper(".portfolio__container", {
     clickable : true,
     },
 
-
     navigation: {
     nextEl: ".swiper-button-next",
     prevEl: ".swiper-button-prev",
     },
-
-    
     
 });
-
-
 
 const sections = document.querySelectorAll("section[id]");
 
@@ -128,15 +117,15 @@ function scrollActive() {
                 .querySelector(".nav__menu a[href*=" + sectionId + "]")
                 .classList.add("active-link");
         } else {
+
             document
                 .querySelector(".nav__menu a[href*=" + sectionId + "]")
                 .classList.remove("active-link");
         }
     });
 }
+
 window.addEventListener("scroll", scrollActive);
-
-
 
 function scrollHeader(){
     const nav = document.getElementById("header");
@@ -144,6 +133,7 @@ function scrollHeader(){
     if(this.scrollY >= 80) nav.classList.add("scroll-header");
     else nav.classList.remove("scroll-header");
 }
+
 window.addEventListener("scroll",scrollHeader);
 
 function scrollUp(){
@@ -152,9 +142,9 @@ function scrollUp(){
     if(this.scrollY >= 560) scrollUp.classList.add("show-scroll");
     else scrollUp.classList.remove("show-scroll");
 }
+
 window.addEventListener("scroll",scrollUp);
 
-/*==dark theme==*/
 const themeButton = document.getElementById("theme-button");
 const darkTheme = "dark-theme";
 const iconTheme = "uil-sun";
@@ -171,6 +161,7 @@ if(selectedTheme){
     document.body.classList[selectedTheme === "dark" ? "add" : "remove"](
         darkTheme
     );
+    
     themeButton.classList[selectedIcon === "uil-moon" ? "add" : "remove"](
         iconTheme
     );
